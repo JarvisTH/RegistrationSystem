@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jarvis.registrationsystem.dao.DoctorDao">
+
+    <!--基本表-->
+    <sql id="TABLE">
+        doctor
+    </sql>
+
+    <sql id="FIELDS">
+        name,sex,age,title,ke_mu_name as keMuName,ke_shi_name as keShiName,expertise,introduction
+    </sql>
+
+    <sql id="ALL_FIELDS">
+        id,name,sex,age,title,ke_mu_name as keMuName,ke_shi_name as keShiName,expertise,introduction
+    </sql>
+
+    <!--添加-->
+    <insert id="addDoctor" parameterType="com.jarvis.registrationsystem.pojo.Doctor">
+        INSERT INTO
+        <include refid="TABLE"/>
+        <trim prefix="(" suffix=")">
+            <include refid="FIELDS"/>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")">
+            #{name},#{sex},#{age},#{title},#{keMuName},#{keShiName},#{expertise},#{introduction}
+        </trim>
+    </insert>
+
+    <!--删除-->
+    <delete id="deleteDoctor" parameterType="com.jarvis.registrationsystem.pojo.Doctor">
+        DELETE FROM
+        <include refid="TABLE"/>
+        WHERE
+        id=#{id}
+    </delete>
+
+    <!--更新-->
+    <update id="updateDoctor" parameterType="com.jarvis.registrationsystem.pojo.Doctor">
+        UPDATE
+        <include refid="TABLE"/>
+        <set>
+            <if test="name!=null">
+                name=#{name,jdbcType=VARCHAR}
+            </if>
+            <if test="sex!=null">
+                sex=#{sex,jdbcType=VARCHAR}
+            </if>
+            <if test="age!=null">
+                age=#{age,jdbcType=VARCHAR}
+            </if>
+            <if test="title!=null">
+                title=#{title,jdbcType=VARCHAR}
+            </if>
+            <if test="keMuName!=null">
+                ke_mu_name=#{keMuName,jdbcType=VARCHAR}
+            </if>
+            <if test="keShiName!=null">
+                keShiName=#{keShiName,jdbcType=VARCHAR}
+            </if>
+            <if test="expertise!=null">
+                expertise=#{expertise,jdbcType=VARCHAR}
+            </if>
+            <if test="introduction!=null">
+                introduction=#{introduction,jdbcType=VARCHAR}
+            </if>
+        </set>
+    </update>
+
+    <!--查询列表-->
+    <select id="getDoctors" resultType="com.jarvis.registrationsystem.pojo.Doctor">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+    </select>
+
+</mapper>

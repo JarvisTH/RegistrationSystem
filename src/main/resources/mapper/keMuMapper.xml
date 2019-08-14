@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jarvis.registrationsystem.dao.KeMuDao">
+
+    <!--基本表-->
+    <sql id="TABLE">
+        ke_mu
+    </sql>
+
+    <sql id="FIELDS">
+        id,name
+    </sql>
+
+    <sql id="NAME">
+        name
+    </sql>
+
+    <!--添加-->
+    <insert id="addKeMu" parameterType="INTEGER">
+        INSERT INTO
+        <include refid="TABLE"/>
+        <trim prefix="(" suffix=")">
+            <include refid="NAME"/>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")">
+            #{name}
+        </trim>
+    </insert>
+
+    <!--删除-->
+    <delete id="deleteKeMu" parameterType="com.jarvis.registrationsystem.pojo.KeMu">
+        DELETE FROM
+        <include refid="TABLE"/>
+        WHERE
+        id=#{id}
+        )
+    </delete>
+
+    <!--更新-->
+    <update id="updateKeMu" parameterType="com.jarvis.registrationsystem.pojo.KeMu">
+        UPDATE
+        <include refid="TABLE"/>
+        <set>
+            <if test="name!=null">
+                name=#{name,jdbcType=VARCHAR}
+            </if>
+        </set>
+    </update>
+
+    <!--查询列表-->
+    <select id="getKeMus" resultType="com.jarvis.registrationsystem.pojo.KeMu">
+        SELECT
+        <include refid="FIELDS"/>
+        FROM <include refid="TABLE"/>
+    </select>
+
+</mapper>

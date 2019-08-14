@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jarvis.registrationsystem.dao.CancelOrderDao">
+
+    <!--基本表-->
+    <sql id="TABLE">
+        cancel_order
+    </sql>
+
+    <sql id="FIELDS">
+        serial_number as serialNumber,patient_id as patienId,doctor_id as doctorId,schedule_id as scheduleId,ke_mu_name as keMuName,ke_shi_name as keShiName,price
+    </sql>
+
+    <sql id="ALL_FIELDS">
+        id,serial_number as serialNumber,patient_id as patienId,doctor_id as doctorId,schedule_id as scheduleId,ke_mu_name as keMuName,ke_shi_name as keShiName,price
+    </sql>
+
+    <!--添加-->
+    <insert id="addCancelOrder" parameterType="com.jarvis.registrationsystem.pojo.CancelOrder">
+        INSERT INTO
+        <include refid="TABLE"/>
+        <trim prefix="(" suffix=")">
+            <include refid="FIELDS"/>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")">
+            #{serialNumber},#{patientId},#{doctorId},#{scheduleId},#{keMuName},#{keShiName},#{price}
+        </trim>
+    </insert>
+
+    <!--删除-->
+    <delete id="deleteCancelOrder" parameterType="com.jarvis.registrationsystem.pojo.CancelOrder">
+        DELETE FROM
+        <include refid="TABLE"/>
+        WHERE
+        id=#{id}
+    </delete>
+
+    <!--更新-->
+    <update id="updateCancelOrder" parameterType="com.jarvis.registrationsystem.pojo.CancelOrder">
+        UPDATE
+        <include refid="TABLE"/>
+        <set>
+            <if test="serialNumber!=null">
+                serial_number=#{serialNumber,jdbcType=VARCHAR}
+            </if>
+            <if test="patientId!=null">
+                patient_id=#{patientId,jdbcType=VARCHAR}
+            </if>
+            <if test="doctorId!=null">
+                doctor_id=#{doctorId,jdbcType=VARCHAR}
+            </if>
+            <if test="scheduleId!=null">
+                schedule_id=#{scheduleId,jdbcType=VARCHAR}
+            </if>
+            <if test="keMuName!=null">
+                ke_mu_name=#{keMuName,jdbcType=VARCHAR}
+            </if>
+            <if test="keShiName!=null">
+                ke_shi_name=#{keShiName,jdbcType=VARCHAR}
+            </if>
+            <if test="price!=null">
+                price=#{price,jdbcType=VARCHAR}
+            </if>
+        </set>
+    </update>
+
+    <!--查询列表-->
+    <select id="getCancelOrders" resultType="com.jarvis.registrationsystem.pojo.CancelOrder">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+    </select>
+
+</mapper>
