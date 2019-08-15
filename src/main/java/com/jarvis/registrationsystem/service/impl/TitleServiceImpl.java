@@ -4,13 +4,18 @@ import com.jarvis.registrationsystem.dao.TitleDao;
 import com.jarvis.registrationsystem.pojo.Title;
 import com.jarvis.registrationsystem.service.TitleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
+@Transactional(isolation = Isolation.READ_COMMITTED,timeout = 1)
 public class TitleServiceImpl implements TitleService {
 
     @Autowired
-    private TitleDao titleDao;
+    private TitleDao titleDao=null;
 
     @Override
     public int addTitle(Title title){
@@ -18,8 +23,8 @@ public class TitleServiceImpl implements TitleService {
     }
 
     @Override
-    public int deleteTitle(Title title){
-        return titleDao.deleteTitle(title);
+    public int deleteTitle(int id){
+        return titleDao.deleteTitle(id);
     }
 
     @Override

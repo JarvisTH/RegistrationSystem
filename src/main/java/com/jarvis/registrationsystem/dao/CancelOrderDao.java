@@ -1,11 +1,11 @@
 package com.jarvis.registrationsystem.dao;
 
 import com.jarvis.registrationsystem.pojo.CancelOrder;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface CancelOrderDao {
     /**
      * 添加
@@ -16,10 +16,10 @@ public interface CancelOrderDao {
 
     /**
      * 删除
-     * @param cancelOrder
+     * @param id
      * @return
      */
-    int deleteCancelOrder(CancelOrder cancelOrder);
+    int deleteCancelOrder(int id);
 
     /**
      * 更新

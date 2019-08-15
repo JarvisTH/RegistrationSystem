@@ -9,7 +9,7 @@
     </sql>
 
     <sql id="FIELDS">
-        doctor_id as doctorId,building,floor,region,room,schedule_date as scheduleDate,detail_time as detailTime,total_amount as totalAmount,remain_amount as remainAmount
+        doctor_id,floor,region,room,schedule_date,detail_time,total_amount,remain_amount
     </sql>
 
     <sql id="ALL_FIELDS">

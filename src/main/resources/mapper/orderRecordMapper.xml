@@ -9,7 +9,7 @@
     </sql>
 
     <sql id="FIELDS">
-        serial_number as serialNumber,patient_id as patientId,doctor_id as doctorId,schedule_id as scheduleId,ke_mu_name as keMuName,ke_shi_name as keShiName,price
+        serial_number,patient_id,doctor_id,schedule_id,ke_mu_name,ke_shi_name,price
     </sql>
 
     <sql id="ALL_FIELDS">

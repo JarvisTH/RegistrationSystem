@@ -1,10 +1,11 @@
 package com.jarvis.registrationsystem.dao;
 
 import com.jarvis.registrationsystem.pojo.KeMu;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
-@Mapper
+@Repository
 public interface KeMuDao {
     /**
      * 添加
@@ -15,10 +16,10 @@ public interface KeMuDao {
 
     /**
      * 删除
-     * @param keMu
+     * @param id
      * @return
      */
-    int deleteKeMu(KeMu keMu);
+    int deleteKeMu(int id);
 
     /**
      * 更新
@@ -32,4 +33,11 @@ public interface KeMuDao {
      * @return
      */
     List<KeMu> getKeMus();
+
+    /**
+     * 获取某个实例
+     * @param id
+     * @return
+     */
+    KeMu getKeMu(int id);
 }

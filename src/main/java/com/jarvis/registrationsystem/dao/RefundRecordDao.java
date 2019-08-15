@@ -2,35 +2,36 @@ package com.jarvis.registrationsystem.dao;
 
 import com.jarvis.registrationsystem.pojo.RefundRecord;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface RefundRecordDao {
     /**
      * 添加
      * @param refundRecord
      * @return
      */
-    int addPatientLoginLog(RefundRecord refundRecord);
+    int addRefundRecord(RefundRecord refundRecord);
 
     /**
      * 删除
-     * @param refundRecord
+     * @param id
      * @return
      */
-    int deletePatientLoginLog(RefundRecord refundRecord);
+    int deleteRefundRecord(int id);
 
     /**
      * 更新
      * @param refundRecord
      * @return
      */
-    int updatePatientLoginLog(RefundRecord refundRecord);
+    int updateRefundRecord(RefundRecord refundRecord);
 
     /**
      * 获取列表
      * @return
      */
-    List<RefundRecord> getPatientLoginLogs();
+    List<RefundRecord> getRefundRecords();
 }

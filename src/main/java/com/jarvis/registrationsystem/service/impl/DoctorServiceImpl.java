@@ -4,13 +4,18 @@ import com.jarvis.registrationsystem.dao.DoctorDao;
 import com.jarvis.registrationsystem.pojo.Doctor;
 import com.jarvis.registrationsystem.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
+@Transactional(isolation = Isolation.READ_COMMITTED,timeout = 1)
 public class DoctorServiceImpl implements DoctorService {
 
     @Autowired
-    private DoctorDao doctorDao;
+    private DoctorDao doctorDao=null;
 
     @Override
     public int addDoctor(Doctor doctor){
@@ -18,8 +23,8 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public int deleteDoctor(Doctor doctor){
-        return doctorDao.deleteDoctor(doctor);
+    public int deleteDoctor(int id){
+        return doctorDao.deleteDoctor(id);
     }
 
     @Override

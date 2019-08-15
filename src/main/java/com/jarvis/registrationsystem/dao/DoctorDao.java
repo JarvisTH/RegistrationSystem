@@ -1,10 +1,11 @@
 package com.jarvis.registrationsystem.dao;
 
 import com.jarvis.registrationsystem.pojo.Doctor;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
-@Mapper
+@Repository
 public interface DoctorDao {
     /**
      * 添加
@@ -15,10 +16,10 @@ public interface DoctorDao {
 
     /**
      * 删除
-     * @param doctor
+     * @param id
      * @return
      */
-    int deleteDoctor(Doctor doctor);
+    int deleteDoctor(int id);
 
     /**
      * 更新

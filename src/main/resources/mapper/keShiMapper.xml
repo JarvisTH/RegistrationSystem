@@ -30,7 +30,7 @@
     </insert>
 
     <!--删除-->
-    <delete id="deleteKeShi" parameterType="com.jarvis.registrationsystem.pojo.KeShi">
+    <delete id="deleteKeShi" parameterType="INTEGER">
         DELETE FROM
         <include refid="TABLE"/>
         WHERE

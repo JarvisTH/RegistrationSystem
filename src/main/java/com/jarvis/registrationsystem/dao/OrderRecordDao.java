@@ -2,10 +2,11 @@ package com.jarvis.registrationsystem.dao;
 
 import com.jarvis.registrationsystem.pojo.OrderRecord;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface OrderRecordDao {
     /**
      * 添加
@@ -16,10 +17,10 @@ public interface OrderRecordDao {
 
     /**
      * 删除
-     * @param orderRecord
+     * @param id
      * @return
      */
-    int deleteOrderRecord(OrderRecord orderRecord);
+    int deleteOrderRecord(int id);
 
     /**
      * 更新

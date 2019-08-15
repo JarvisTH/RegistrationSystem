@@ -9,7 +9,7 @@
     </sql>
 
     <sql id="FIELDS">
-        name,sex,age,id_card as idCard,address,phone
+        name,sex,age,id_card,address,phone
     </sql>
 
     <sql id="ALL_FIELDS">
@@ -30,7 +30,7 @@
     </insert>
 
     <!--删除-->
-    <delete id="deletePatient" parameterType="com.jarvis.registrationsystem.pojo.Patient">
+    <delete id="deletePatient" parameterType="INTEGER">
         DELETE FROM
         <include refid="TABLE"/>
         WHERE

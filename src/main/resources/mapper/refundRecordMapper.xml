@@ -9,7 +9,7 @@
     </sql>
 
     <sql id="FIELDS">
-        cancel_order_id as cancelOrderId,finish
+        cancel_order_id,finish
     </sql>
 
     <sql id="ALL_FIELDS">
@@ -30,7 +30,7 @@
     </insert>
 
     <!--删除-->
-    <delete id="deleteRefundRecord" parameterType="com.jarvis.registrationsystem.pojo.RefundRecord">
+    <delete id="deleteRefundRecord" parameterType="INTEGER">
         DELETE FROM
         <include refid="TABLE"/>
         WHERE

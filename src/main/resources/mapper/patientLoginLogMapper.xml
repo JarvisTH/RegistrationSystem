@@ -9,7 +9,7 @@
     </sql>
 
     <sql id="FIELDS">
-        patient_id as patientId,login_time as loginTime
+        patient_id ,login_time
     </sql>
 
     <sql id="ALL_FIELDS">

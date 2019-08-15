@@ -2,10 +2,11 @@ package com.jarvis.registrationsystem.dao;
 
 import com.jarvis.registrationsystem.pojo.DoctorLoginLog;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface DoctorLoginLogDao {
     /**
      * 添加
@@ -16,10 +17,10 @@ public interface DoctorLoginLogDao {
 
     /**
      * 删除
-     * @param doctorLoginLog
+     * @param id
      * @return
      */
-    int deleteDoctorLoginLog(DoctorLoginLog doctorLoginLog);
+    int deleteDoctorLoginLog(int id);
 
     /**
      * 更新

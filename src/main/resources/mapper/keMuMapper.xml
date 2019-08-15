@@ -30,7 +30,7 @@
     </insert>
 
     <!--删除-->
-    <delete id="deleteKeMu" parameterType="com.jarvis.registrationsystem.pojo.KeMu">
+    <delete id="deleteKeMu" parameterType="INTEGER">
         DELETE FROM
         <include refid="TABLE"/>
         WHERE
@@ -54,6 +54,14 @@
         SELECT
         <include refid="FIELDS"/>
         FROM <include refid="TABLE"/>
+    </select>
+
+    <select id="getKeMu" parameterType="INTEGER" resultType="com.jarvis.registrationsystem.pojo.KeMu">
+        SELECT
+        <include refid="FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        id=#{id}
     </select>
 
 </mapper>

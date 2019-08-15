@@ -2,10 +2,11 @@ package com.jarvis.registrationsystem.dao;
 
 import com.jarvis.registrationsystem.pojo.KeShi;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface KeShiDao {
     /**
      * 添加
@@ -16,10 +17,10 @@ public interface KeShiDao {
 
     /**
      * 删除
-     * @param keShi
+     * @param id
      * @return
      */
-    int deleteKeShi(KeShi keShi);
+    int deleteKeShi(int id);
 
     /**
      * 更新

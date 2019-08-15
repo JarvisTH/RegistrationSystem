@@ -4,13 +4,18 @@ import com.jarvis.registrationsystem.dao.KeMuDao;
 import com.jarvis.registrationsystem.pojo.KeMu;
 import com.jarvis.registrationsystem.service.KeMuService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
+@Transactional(isolation = Isolation.READ_COMMITTED,timeout = 1)
 public class KeMuServiceImpl implements KeMuService {
 
     @Autowired
-    private KeMuDao keMuDao;
+    private KeMuDao keMuDao=null;
 
     @Override
     public int addKeMu(String keMu){
@@ -18,8 +23,8 @@ public class KeMuServiceImpl implements KeMuService {
     }
 
     @Override
-    public int deleteKeMu(KeMu keMu){
-        return keMuDao.deleteKeMu(keMu);
+    public int deleteKeMu(int id){
+        return keMuDao.deleteKeMu(id);
     }
 
     @Override
@@ -30,5 +35,10 @@ public class KeMuServiceImpl implements KeMuService {
     @Override
     public List<KeMu> getKeMus(){
         return keMuDao.getKeMus();
+    }
+
+    @Override
+    public KeMu getKeMu(int id){
+        return keMuDao.getKeMu(id);
     }
 }

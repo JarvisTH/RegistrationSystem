@@ -2,10 +2,11 @@ package com.jarvis.registrationsystem.dao;
 
 import com.jarvis.registrationsystem.pojo.Title;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface TitleDao {
     /**
      * 添加
@@ -16,10 +17,10 @@ public interface TitleDao {
 
     /**
      * 删除
-     * @param title
+     * @param id
      * @return
      */
-    int deleteTitle(Title title);
+    int deleteTitle(int id);
 
     /**
      * 更新

@@ -9,7 +9,7 @@
     </sql>
 
     <sql id="FIELDS">
-        name,sex,age,title,ke_mu_name as keMuName,ke_shi_name as keShiName,expertise,introduction
+        name,sex,age,title,ke_mu_name,ke_shi_name,expertise,introduction
     </sql>
 
     <sql id="ALL_FIELDS">

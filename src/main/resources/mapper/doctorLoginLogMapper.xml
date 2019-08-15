@@ -9,7 +9,7 @@
     </sql>
 
     <sql id="FIELDS">
-        dortor_id as dortorId,login_time as loginTime
+        dortor_id,login_time
     </sql>
 
     <sql id="ALL_FIELDS">
@@ -30,7 +30,7 @@
     </insert>
 
     <!--删除-->
-    <delete id="deleteDoctorLoginLog" parameterType="com.jarvis.registrationsystem.pojo.DoctorLoginLog">
+    <delete id="deleteDoctorLoginLog" parameterType="INTEGER">
         DELETE FROM
         <include refid="TABLE"/>
         WHERE
