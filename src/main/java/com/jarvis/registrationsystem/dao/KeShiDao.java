@@ -10,10 +10,10 @@ import java.util.List;
 public interface KeShiDao {
     /**
      * 添加
-     * @param keShi
+     * @param name
      * @return
      */
-    int addKeShi(KeShi keShi);
+    int addKeShi(String name);
 
     /**
      * 删除

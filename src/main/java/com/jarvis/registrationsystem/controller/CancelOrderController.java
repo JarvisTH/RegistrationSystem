@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.util.List;
 
 //定义控制器
@@ -18,33 +20,54 @@ public class CancelOrderController {
     private CancelOrderService cancelOrderService=null;
 
     @RequestMapping("listCancelOrder")
-    public String listCancelOrder(Model model){
-        List<CancelOrder> cancelOrders=cancelOrderService.getCancelOrders();
+    public String listCancelOrder(List<CancelOrder> cancelOrders,Model model){
+        if(cancelOrders==null){
+            cancelOrders=cancelOrderService.getCancelOrders();
+        }
         model.addAttribute("cancelOrders",cancelOrders);
         return "admin/listCancelOrder";
     }
 
     @RequestMapping("deleteCancelOrder")
-    public String deleteCancelOrder(Model model){
-        //传来id号
+    public String deleteCancelOrder(int id){
         cancelOrderService.deleteCancelOrder(id);
-        return "admin/listCancelOrder";
+        return "redirect:admin/listCancelOrder";
     }
 
     @RequestMapping("updateCancelOrder")
-    public String updateCancelOrder(Model model){
-        //传来id，name..或者CancelOrder实例
+    public String updateCancelOrder(int id,String serialNumber,int patientId,int doctorId,int scheduleId,String keMu,String keShi,String price){
         CancelOrder cancelOrder=new CancelOrder();
+        cancelOrder.setId(id);
+        cancelOrder.setSerialNumber(serialNumber);
+        cancelOrder.setPatientId(patientId);
+        cancelOrder.setDoctorId(doctorId);
+        cancelOrder.setScheduleId(scheduleId);
+        cancelOrder.setKeMu(keMu);
+        cancelOrder.setKeShi(keShi);
+        cancelOrder.setPrice(price);
         cancelOrderService.updateCancelOrder(cancelOrder);
-        return "admin/listCancelOrder";
+        return "redirect:admin/listCancelOrder";
     }
 
     @RequestMapping("addCancelOrder")
-    public String addCancelOrder(Model model){
-        //传来name...或者实例
+    public String addCancelOrder(String serialNumber,int patientId,int doctorId,int scheduleId,String keMu,String keShi){
         CancelOrder cancelOrder=new CancelOrder();
+        cancelOrder.setSerialNumber(serialNumber);
+        cancelOrder.setPatientId(patientId);
+        cancelOrder.setDoctorId(doctorId);
+        cancelOrder.setScheduleId(scheduleId);
+        cancelOrder.setKeMu(keMu);
+        cancelOrder.setKeShi(keShi);
+        //根据doctorId查职称，然后查到价格
         cancelOrderService.addCancelOrder(cancelOrder);
-        return "admin/listCancelOrder";
+        return "redirect:admin/listCancelOrder";
+    }
+
+    @RequestMapping("getCancelOrderListByPara")
+    public String getCancelOrderListByPara(int scheduleId, String keMu, String keShi, RedirectAttributes ra){
+        List<CancelOrder> cancelOrders=cancelOrderService.getCancelOrderList(scheduleId,keMu,keShi);
+        ra.addAttribute("cancelOrders",cancelOrders);
+        return "redirect:admin/listCancelOrder";
     }
 
 }

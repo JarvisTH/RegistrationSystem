@@ -45,4 +45,12 @@ public class RefundRecordController {
         refundRecordService.addRefundRecord(refundRecord);
         return "admin/listRefundRecord";
     }
+
+    @RequestMapping("getRefundRecordListByPara")
+    public String getRefundRecordListByPara(Model model){
+        //传来参数
+        List<RefundRecord> refundRecords=refundRecordService.getRefundRecordList(cancelOrderId);
+        model.addAttribute("refundRecords",refundRecords);
+        return "admin/listRefundRecord";
+    }
 }

@@ -28,11 +28,6 @@
     </form>
 </div>
 
-<!-- 添加 -->
-<div class="container mt-3">
-    <label>功能栏：</label>
-    <a href="" class="btn bg-primary text-white">添加</a>
-</div>
 
 <!-- 内容 -->
 <div class="container mt-3">
@@ -47,7 +42,6 @@
             <th>患者ID</th>
             <th>医师ID</th>
             <th>时间表ID</th>
-            <th>修改</th>
             <th>删除</th>
         </tr>
         </thead>
@@ -62,7 +56,6 @@
                 <td><a href="">${cancelOrder.patientId}</a></td>
                 <td><a href="">${cancelOrder.doctorId}</a></td>
                 <td><a href="">${cancelOrder.scheduleId}</a></td>
-                <td><a href="">modify</a></td>
                 <td><a href="">delete</a></td>
             </tr>
         </c:forEach>

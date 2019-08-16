@@ -25,12 +25,6 @@
     </form>
 </div>
 
-<!-- 添加 -->
-<div class="container mt-3">
-    <label>功能栏：</label>
-    <a href="" class="btn bg-primary text-white">添加</a>
-</div>
-
 <!--内容-->
 <div class="container mt-3">
     <table class="table table-bordered table-hover table-dark table-striped">
@@ -39,7 +33,6 @@
             <th>ID</th>
             <th>登录时间</th>
             <th>医师ID</th>
-            <th>编辑</th>
             <th>删除</th>
         </tr>
         </thead>
@@ -49,7 +42,6 @@
                 <td>${doctorLoginLog.id}</td>
                 <td>${doctorLoginLog.loginTime}</td>
                 <td><a href="">${doctorLoginLog.doctorId}</a></td>
-                <td><a href="">modify</a></td>
                 <td><a href="">delete</a></td>
             </tr>
         </c:forEach>

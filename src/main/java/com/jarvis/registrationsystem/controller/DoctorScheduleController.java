@@ -45,4 +45,12 @@ public class DoctorScheduleController {
         doctorScheduleService.addDoctorSchedule(doctorSchedule);
         return "admin/listDoctorSchedule";
     }
+
+    @RequestMapping("getDoctorScheduleListByPara")
+    public String getDoctorScheduleListByPara(Model model){
+        //传来参数
+        List<DoctorSchedule> doctorSchedules=doctorScheduleService.getDoctorScheduleList(id,doctorId);
+        model.addAttribute("doctorSchedules",doctorSchedules);
+        return "admin/listDoctorSchedule";
+    }
 }

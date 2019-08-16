@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface KeShiService {
 
-    int addKeShi(KeShi keShi);
+    int addKeShi(String name);
 
     int deleteKeShi(int id);
 

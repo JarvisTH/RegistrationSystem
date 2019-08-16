@@ -17,7 +17,7 @@
     </sql>
 
     <!--添加-->
-    <insert id="addKeShi" parameterType="com.jarvis.registrationsystem.pojo.KeShi">
+    <insert id="addKeShi" parameterType="STRING">
         INSERT INTO
         <include refid="TABLE"/>
         <trim prefix="(" suffix=")">

@@ -46,4 +46,12 @@ public class OrderRecordContrller {
         orderRecordService.addOrderRecord(orderRecord);
         return "admin/listOrderRecord";
     }
+
+    @RequestMapping("getOrderRecordListByPara")
+    public String getOrderRecordListByPara(Model model){
+        //传来参数
+        List<OrderRecord> orderRecords=orderRecordService.getOrderRecordList(id,name,sex);
+        model.addAttribute("orderRecords",orderRecords);
+        return "admin/listOrderRecord";
+    }
 }

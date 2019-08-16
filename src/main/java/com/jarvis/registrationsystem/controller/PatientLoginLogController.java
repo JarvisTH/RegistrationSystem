@@ -46,4 +46,12 @@ public class PatientLoginLogController {
         patientLoginLogService.addPatientLoginLog(patientLoginLog);
         return "admin/listPatientLoginLog";
     }
+
+    @RequestMapping("getPatientLoginLogListByPara")
+    public String getPatientLoginLogListByPara(Model model){
+        //传来参数
+        List<PatientLoginLog> patientLoginLogs=patientLoginLogService.getPatientLoginLogList(id,patientId);
+        model.addAttribute("patientLoginLogs",patientLoginLogs);
+        return "admin/listPatientLoginLog";
+    }
 }

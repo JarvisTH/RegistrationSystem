@@ -44,4 +44,12 @@ public class DoctorLoginLogController {
         doctorLoginLogService.addDoctorLoginLog(doctorLoginLog);
         return "admin/listDoctorLoginLog";
     }
+
+    @RequestMapping("getDoctorLoginLogListByPara")
+    public String getDoctorLoginLogListByPara(Model model){
+        //传来参数
+        List<DoctorLoginLog> doctorLoginLogs=doctorLoginLogService.getDoctorLoginLogList(id,doctorId);
+        model.addAttribute("doctorLoginLogs",doctorLoginLogs);
+        return "admin/listDoctorLoginLog";
+    }
 }

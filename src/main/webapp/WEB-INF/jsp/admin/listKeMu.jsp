@@ -43,10 +43,10 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${km}" var="k">
+        <c:forEach items="${keMus}" var="keMu">
             <tr>
-                <td>${k.id}</td>
-                <td>${k.name}</td>
+                <td>${keMu.id}</td>
+                <td>${keMu.name}</td>
                 <td><a href="">modify</a></td>
                 <td><a href="">delete</a></td>
             </tr>

@@ -22,11 +22,6 @@
     </form>
 </div>
 
-<!-- 添加 -->
-<div class="container mt-3">
-    <label>功能栏：</label>
-    <a href="" class="btn bg-primary text-white">添加</a>
-</div>
 
 <!-- 内容 -->
 <div class="container mt-3">
@@ -36,7 +31,6 @@
             <th>订单ID</th>
             <th>退单ID</th>
             <th>完成</th>
-            <th>修改</th>
             <th>删除</th>
         </tr>
         </thead>
@@ -46,7 +40,6 @@
                 <td>${refundRecord.id}</td>
                 <td>${refundRecord.cancelOrderId}</td>
                 <td>${refundRecord.finish}</td>
-                <td><a href="">modify</a></td>
                 <td><a href="">delete</a></td>
             </tr>
         </c:forEach>

@@ -17,8 +17,8 @@ public class KeShiServiceImpl implements KeShiService {
     private KeShiDao keShiDao=null;
 
     @Override
-    public int addKeShi(KeShi keShi){
-        return keShiDao.addKeShi(keShi);
+    public int addKeShi(String name){
+        return keShiDao.addKeShi(name);
     }
 
     @Override

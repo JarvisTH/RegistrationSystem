@@ -45,10 +45,10 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${ks}" var="k">
+        <c:forEach items="${keShis}" var="keShi">
             <tr>
-                <td>${k.id}</td>
-                <td>${k.name}</td>
+                <td>${keShi.id}</td>
+                <td>${keShi.name}</td>
                 <td><a href="">modify</a></td>
                 <td><a href="">delete</a></td>
             </tr>
