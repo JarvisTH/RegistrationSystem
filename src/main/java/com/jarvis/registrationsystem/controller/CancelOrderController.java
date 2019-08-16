@@ -19,8 +19,8 @@ public class CancelOrderController {
 
     @RequestMapping("listCancelOrder")
     public String listCancelOrder(Model model){
-        List<CancelOrder> co=cancelOrderService.getCancelOrders();
-        model.addAttribute("co",co);
+        List<CancelOrder> cancelOrders=cancelOrderService.getCancelOrders();
+        model.addAttribute("cancelOrders",cancelOrders);
         return "admin/listCancelOrder";
     }
 

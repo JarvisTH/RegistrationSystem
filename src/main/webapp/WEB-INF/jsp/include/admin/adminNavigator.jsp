@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
+<!-- 导航栏 -->
 <div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <!-- Navbar text-->
@@ -15,24 +17,39 @@
         </span>
         <!-- Links -->
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">订单管理</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">医师管理</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">用户管理</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">科目管理</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">科室管理</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">时间表管理</a>
-            </li>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">订单管理</a>
+                    <div class="dropdown-menu bg-dark text-white">
+                        <a class="dropdown-item bg-dark text-white" href="#">订单记录</a>
+                        <a class="dropdown-item bg-dark text-white" href="#">退单记录</a>
+                        <a class="dropdown-item bg-dark text-white" href="#">退款记录</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">用户管理</a>
+                    <div class="dropdown-menu bg-dark text-white">
+                        <a class="dropdown-item bg-dark text-white" href="#">医师管理</a>
+                        <a class="dropdown-item bg-dark text-white" href="#">患者管理</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">纲目管理</a>
+                    <div class="dropdown-menu bg-dark text-white">
+                        <a class="dropdown-item bg-dark text-white" href="#">科目管理</a>
+                        <a class="dropdown-item bg-dark text-white" href="#">科室管理</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">登录日志</a>
+                    <div class="dropdown-menu bg-dark text-white">
+                        <a class="dropdown-item bg-dark text-white" href="#">医师日志</a>
+                        <a class="dropdown-item bg-dark text-white" href="#">患者日志</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">时间表管理</a>
+                </li>
         </ul>
     </nav>
 </div>

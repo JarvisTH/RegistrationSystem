@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: Jarvis
-  Date: 2019/8/15
-  Time: 15:45
+  Date: 2019/8/16
+  Time: 9:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../include/admin/adminHeader.jsp"%>
 <%@ include file="../include/admin/adminNavigator.jsp"%>
 
-<title>科室管理</title>
+<title>订单管理</title>
 
 
 <!-- 搜索 -->
@@ -38,17 +38,29 @@
     <table class="table table-bordered table-hover table-dark table-striped">
         <thead>
         <tr>
-            <th>科室ID</th>
-            <th>科室名称</th>
-            <th>编辑</th>
+            <th>订单ID</th>
+            <th>订单序号</th>
+            <th>科目</th>
+            <th>科室</th>
+            <th>门诊价格</th>
+            <th>患者ID</th>
+            <th>医师ID</th>
+            <th>时间表ID</th>
+            <th>修改</th>
             <th>删除</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${ks}" var="k">
+        <c:forEach items="${orderRecords}" var="orderRecord">
             <tr>
-                <td>${k.id}</td>
-                <td>${k.name}</td>
+                <td>${orderRecord.id}</td>
+                <td>${orderRecord.serialNumber}</td>
+                <td>${orderRecord.keMu}</td>
+                <td>${orderRecord.keShi}</td>
+                <td>${orderRecord.price}</td>
+                <td><a href="">${orderRecord.patientId}</a></td>
+                <td><a href="">${orderRecord.doctorId}</a></td>
+                <td><a href="">${orderRecord.scheduleId}</a></td>
                 <td><a href="">modify</a></td>
                 <td><a href="">delete</a></td>
             </tr>

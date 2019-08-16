@@ -12,5 +12,7 @@
 <title>welcome</title>
 
 <div class="container" style="text-align: center; margin-top: 20%">
-    <h1 class="text-primary" style="align-content: center">欢迎挂号预约系统后台</h1>
+    <h1 class="text-primary" style="align-content: center">欢迎进入医院挂号预约系统后台</h1>
 </div>
+
+<%@ include file="../include/admin/adminFooter.jsp"%>
