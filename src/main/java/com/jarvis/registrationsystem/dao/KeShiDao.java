@@ -34,4 +34,12 @@ public interface KeShiDao {
      * @return
      */
     List<KeShi> getKeShis();
+
+    /**
+     * 根据参数搜索
+     * @param id
+     * @param name
+     * @return
+     */
+    List<KeShi> getKeShiList(int id,String name);
 }

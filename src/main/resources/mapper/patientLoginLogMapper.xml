@@ -43,7 +43,7 @@
         <include refid="TABLE"/>
         <set>
             <if test="patientId!=null">
-                patient_id=#{patientId,jdbcType=VARCHAR}
+                patient_id=#{patientId,jdbcType=INTEGER}
             </if>
             <if test="loginTime!=null">
                 login_time=#{loginTime,jdbcType=VARCHAR}
@@ -56,6 +56,14 @@
         SELECT
         <include refid="ALL_FIELDS"/>
         FROM <include refid="TABLE"/>
+    </select>
+
+    <select id="getPatientLoginLogList" resultType="com.jarvis.registrationsystem.pojo.PatientLoginLog">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        id=#{id} OR patient_id=#{patientId}
     </select>
 
 </mapper>

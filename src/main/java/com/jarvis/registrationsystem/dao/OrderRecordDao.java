@@ -34,4 +34,13 @@ public interface OrderRecordDao {
      * @return
      */
     List<OrderRecord> getOrderRecords();
+
+    /**
+     *
+     * @param scheduleId
+     * @param keMu
+     * @param keShi
+     * @return
+     */
+    List<OrderRecord> getOrderRecordList(int scheduleId,String keMu,String keShi);
 }

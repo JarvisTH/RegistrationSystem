@@ -36,4 +36,9 @@ public class RefundRecordServiceImpl implements RefundRecordService {
     public List<RefundRecord> getRefundRecords(){
         return refundRecordDao.getRefundRecords();
     }
+
+    @Override
+    public List<RefundRecord> getRefundRecordList(int cancelOrderId){
+        return refundRecordDao.getRefundRecordList(cancelOrderId);
+    }
 }

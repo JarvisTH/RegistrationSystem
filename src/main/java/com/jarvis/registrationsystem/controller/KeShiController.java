@@ -23,7 +23,7 @@ public class KeShiController {
     }
 
     @RequestMapping("updateKeShi")
-    public String updateKeMu(Model model){
+    public String updateKeShi(Model model){
         //传来id号,name
         KeShi keShi=new KeShi();
         keShi.setId();
@@ -33,7 +33,7 @@ public class KeShiController {
     }
 
     @RequestMapping("addKeShi")
-    public String addKeMu(Model model){
+    public String addKeShi(Model model){
         //传来id号,name
         KeShi keShi=new KeShi();
         keShi.setId();
@@ -43,9 +43,17 @@ public class KeShiController {
     }
 
     @RequestMapping("deleteKeShi")
-    public String deleteKeMu(Model model){
+    public String deleteKeShi(Model model){
         //传来id
         keShiService.deleteKeShi(id);
+        return "admin/listKeShi";
+    }
+
+    @RequestMapping("getKeShiList")
+    public String getKeShiList(Model model){
+        //传来id和name
+        List<KeShi> keShis=keShiService.getKeShiList(id,name);
+        model.addAttribute("keShis",keShis);
         return "admin/listKeShi";
     }
 

@@ -34,4 +34,12 @@ public interface TitleDao {
      * @return
      */
     List<Title> getTitles();
+
+    /**
+     * 根据参数获取列表
+     * @param id
+     * @param name
+     * @return
+     */
+    List<Title> getTitleList(int id,String name);
 }

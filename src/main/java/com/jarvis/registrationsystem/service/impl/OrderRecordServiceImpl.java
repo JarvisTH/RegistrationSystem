@@ -36,4 +36,9 @@ public class OrderRecordServiceImpl implements OrderRecordService {
     public List<OrderRecord> getOrderRecords(){
         return orderRecordDao.getOrderRecords();
     }
+
+    @Override
+    public List<OrderRecord> getOrderRecordList(int scheduleId,String keMu,String keShi){
+        return orderRecordDao.getOrderRecordList(scheduleId,keMu,keShi);
+    }
 }

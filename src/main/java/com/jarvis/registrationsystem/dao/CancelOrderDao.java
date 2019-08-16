@@ -33,4 +33,13 @@ public interface CancelOrderDao {
      * @return
      */
     List<CancelOrder> getCancelOrders();
+
+    /**
+     * 根据参数获取列表
+     * @param scheduleId
+     * @param keMu
+     * @param keShi
+     * @return
+     */
+    List<CancelOrder> getCancelOrderList(int scheduleId,String keMu,String keShi);
 }

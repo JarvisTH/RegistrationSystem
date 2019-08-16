@@ -35,4 +35,9 @@ public class CancelOrderServiceImpl implements CancelOrderService {
     public List<CancelOrder> getCancelOrders(){
         return cancelOrderDao.getCancelOrders();
     }
+
+    @Override
+    public List<CancelOrder> getCancelOrderList(int scheduleId,String keMu,String keShi){
+       return cancelOrderDao.getCancelOrderList(scheduleId,keMu,keShi);
+    }
 }

@@ -36,4 +36,9 @@ public class DoctorLoginLogServiceImpl implements DoctorLoginLogService {
     public List<DoctorLoginLog> getDoctorLoginLogs(){
         return doctorLoginLogDao.getDoctorLoginLogs();
     }
+
+    @Override
+    public List<DoctorLoginLog> getDoctorLoginLogList(int id,int doctorId){
+        return doctorLoginLogDao.getDoctorLoginLogList(id,doctorId);
+    }
 }

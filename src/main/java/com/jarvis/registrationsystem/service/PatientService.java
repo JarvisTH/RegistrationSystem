@@ -13,4 +13,6 @@ public interface PatientService {
     int updatePatient(Patient patient);
 
     List<Patient> getPatients();
+
+    List<Patient> getPatientList(int id,String name,String sex);
 }

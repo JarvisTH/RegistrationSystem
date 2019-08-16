@@ -16,10 +16,13 @@
     <form>
         <label>搜索栏：</label>
         <div class="custom-control custom-input custom-control-inline input-group-sm">
-            <input type="text" class="form-control" placeholder="请输入ID" id="usr" name="username">
+            <input type="text" class="form-control" placeholder="请输入时间表ID" id="usr" name="username">
         </div>
         <div class="custom-control custom-input custom-control-inline input-group-sm">
-            <input type="text" class="form-control" placeholder="请输入名称" id="usr" name="username">
+            <input type="text" class="form-control" placeholder="请输入科目" id="usr" name="username">
+        </div>
+        <div class="custom-control custom-input custom-control-inline input-group-sm">
+            <input type="text" class="form-control" placeholder="请输入科室" id="usr" name="username">
         </div>
         <input type="submit" class="btn btn-info " value="Search">
     </form>
@@ -44,7 +47,7 @@
             <th>患者ID</th>
             <th>医师ID</th>
             <th>时间表ID</th>
-            th>修改</th>
+            <th>修改</th>
             <th>删除</th>
         </tr>
         </thead>

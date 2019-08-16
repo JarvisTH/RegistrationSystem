@@ -43,7 +43,7 @@
         <include refid="TABLE"/>
         <set>
             <if test="cancelOrderId!=null">
-                cancel_order_id=#{cancelOrderId,jdbcType=VARCHAR}
+                cancel_order_id=#{cancelOrderId,jdbcType=INTEGER}
             </if>
             <if test="finish!=null">
                 finish=#{finish,jdbcType=VARCHAR}
@@ -57,6 +57,14 @@
         SELECT
         <include refid="ALL_FIELDS"/>
         FROM <include refid="TABLE"/>
+    </select>
+
+    <select id="getRefundRecordList" resultType="com.jarvis.registrationsystem.pojo.RefundRecord">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        cancel_order_id=#{cancelOrderId}
     </select>
 
 </mapper>

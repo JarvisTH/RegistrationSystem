@@ -5,7 +5,7 @@ import org.apache.ibatis.type.Alias;
 @Alias(value = "doctor_login_log")
 public class DoctorLoginLog {
     private int id;
-    private String doctorId;
+    private int doctorId;
     private String loginTime;
 
     public int getId() {
@@ -16,11 +16,11 @@ public class DoctorLoginLog {
         this.id = id;
     }
 
-    public String getDoctorId() {
+    public int getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(String doctorId) {
+    public void setDoctorId(int doctorId) {
         this.doctorId = doctorId;
     }
 

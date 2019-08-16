@@ -35,4 +35,9 @@ public class PatientLoginLogServiceImpl implements PatientLoginLogService {
     public List<PatientLoginLog> getPatientLoginLogs(){
         return patientLoginLogDao.getPatientLoginLogs();
     }
+
+    @Override
+    public List<PatientLoginLog> getPatientLoginLogList(int id,int patientId){
+        return patientLoginLogDao.getPatientLoginLogList(id,patientId);
+    }
 }

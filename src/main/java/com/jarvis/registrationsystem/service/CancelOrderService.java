@@ -13,4 +13,6 @@ public interface CancelOrderService {
     int updateCancelOrder(CancelOrder cancelOrder);
 
     List<CancelOrder> getCancelOrders();
+
+    List<CancelOrder> getCancelOrderList(int scheduleId,String keMu,String keShi);
 }

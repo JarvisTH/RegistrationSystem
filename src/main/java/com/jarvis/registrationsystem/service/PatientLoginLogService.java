@@ -13,4 +13,6 @@ public interface PatientLoginLogService {
     int updatePatientLoginLog(PatientLoginLog patientLoginLog);
 
     List<PatientLoginLog> getPatientLoginLogs();
+
+    List<PatientLoginLog> getPatientLoginLogList(int id,int patientId);
 }

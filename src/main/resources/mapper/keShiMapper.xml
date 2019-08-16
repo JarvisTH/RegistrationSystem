@@ -55,4 +55,12 @@
         FROM <include refid="TABLE"/>
     </select>
 
+    <select id="getKeShiList" parameterType="INTEGER,STRING" resultType="com.jarvis.registrationsystem.pojo.KeShi">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        id=#{id} OR name=#{name}
+    </select>
+
 </mapper>

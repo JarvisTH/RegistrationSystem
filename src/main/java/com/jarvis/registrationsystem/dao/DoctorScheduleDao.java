@@ -34,4 +34,12 @@ public interface DoctorScheduleDao {
      * @return
      */
     List<DoctorSchedule> getDoctorSchedules();
+
+    /**
+     * 根据参数获取列表
+     * @param id
+     * @param doctorId
+     * @return
+     */
+    List<DoctorSchedule> getDoctorScheduleList(int id,int doctorId);
 }

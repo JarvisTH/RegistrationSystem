@@ -35,4 +35,9 @@ public class KeShiServiceImpl implements KeShiService {
     public List<KeShi> getKeShis(){
         return keShiDao.getKeShis();
     }
+
+    @Override
+    public List<KeShi> getKeShiList(int id,String name){
+        return keShiDao.getKeShiList(id,name);
+    }
 }

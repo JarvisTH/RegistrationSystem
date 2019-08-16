@@ -5,7 +5,7 @@ import org.apache.ibatis.type.Alias;
 @Alias(value = "doctor_schedule")
 public class DoctorSchedule {
     private int id;
-    private String doctorId;
+    private int doctorId;
     private String building;
     private String floor;
     private String region;
@@ -23,11 +23,11 @@ public class DoctorSchedule {
         this.id = id;
     }
 
-    public String getDoctorId() {
+    public int getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(String doctorId) {
+    public void setDoctorId(int doctorId) {
         this.doctorId = doctorId;
     }
 

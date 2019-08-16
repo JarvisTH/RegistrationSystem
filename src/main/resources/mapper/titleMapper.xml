@@ -59,4 +59,12 @@
         FROM <include refid="TABLE"/>
     </select>
 
+    <select id="getTitleList" parameterType="INTEGER,STRING" resultType="com.jarvis.registrationsystem.pojo.Title">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        id=#{id} OR name=#{name}
+    </select>
+
 </mapper>

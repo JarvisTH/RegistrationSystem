@@ -13,4 +13,7 @@ public interface RefundRecordService {
     int updateRefundRecord(RefundRecord refundRecord);
 
     List<RefundRecord> getRefundRecords();
+
+    List<RefundRecord> getRefundRecordList(int cancelOrderId);
+
 }

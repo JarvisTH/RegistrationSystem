@@ -34,4 +34,11 @@ public interface RefundRecordDao {
      * @return
      */
     List<RefundRecord> getRefundRecords();
+
+    /**
+     * 根据参数获取列表
+     * @param cancelOrderId
+     * @return
+     */
+    List<RefundRecord> getRefundRecordList(int cancelOrderId);
 }

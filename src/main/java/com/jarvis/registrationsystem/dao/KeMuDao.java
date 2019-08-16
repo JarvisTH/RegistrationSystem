@@ -40,4 +40,12 @@ public interface KeMuDao {
      * @return
      */
     KeMu getKeMu(int id);
+
+    /**
+     * 根据参数获取列表
+     * @param id
+     * @param name
+     * @return
+     */
+    List<KeMu> getKeMuList(int id,String name);
 }

@@ -6,9 +6,9 @@ import org.apache.ibatis.type.Alias;
 public class CancelOrder {
     private int id;
     private String serialNumber;
-    private String patientId;
-    private String doctorId;
-    private String scheduleId;
+    private int patientId;
+    private int doctorId;
+    private int scheduleId;
     private String keMu;
     private String keShi;
     private String price;
@@ -29,27 +29,27 @@ public class CancelOrder {
         this.serialNumber = serialNumber;
     }
 
-    public String getPatientId() {
+    public int getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(String patientId) {
+    public void setPatientId(int patientId) {
         this.patientId = patientId;
     }
 
-    public String getDoctorId() {
+    public int getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(String doctorId) {
+    public void setDoctorId(int doctorId) {
         this.doctorId = doctorId;
     }
 
-    public String getScheduleId() {
+    public int getScheduleId() {
         return scheduleId;
     }
 
-    public void setScheduleId(String scheduleId) {
+    public void setScheduleId(int scheduleId) {
         this.scheduleId = scheduleId;
     }
 

@@ -33,4 +33,13 @@ public interface DoctorDao {
      * @return
      */
     List<Doctor> getDoctors();
+
+    /**
+     * 根据参数获取列表
+     * @param id
+     * @param name
+     * @param sex
+     * @return
+     */
+    List<Doctor> getDoctorList(int id,String name,String sex);
 }

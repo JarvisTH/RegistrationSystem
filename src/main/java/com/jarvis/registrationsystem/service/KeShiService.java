@@ -13,4 +13,6 @@ public interface KeShiService {
     int updateKeShi(KeShi keShi);
 
     List<KeShi> getKeShis();
+
+    List<KeShi> getKeShiList(int id,String name);
 }

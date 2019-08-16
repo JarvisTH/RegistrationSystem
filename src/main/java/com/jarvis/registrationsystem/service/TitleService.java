@@ -13,4 +13,6 @@ public interface TitleService {
     int updateTitle(Title title);
 
     List<Title> getTitles();
+
+    List<Title> getTitleList(int id,String name);
 }

@@ -41,4 +41,9 @@ public class KeMuServiceImpl implements KeMuService {
     public KeMu getKeMu(int id){
         return keMuDao.getKeMu(id);
     }
+
+    @Override
+    public List<KeMu> getKeMuList(int id,String name){
+        return keMuDao.getKeMuList(id,name);
+    }
 }

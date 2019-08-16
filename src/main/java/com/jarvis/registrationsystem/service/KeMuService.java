@@ -15,4 +15,6 @@ public interface KeMuService {
     List<KeMu> getKeMus();
 
     KeMu getKeMu(int id);
+
+    List<KeMu> getKeMuList(int id,String name);
 }

@@ -5,7 +5,7 @@ import org.apache.ibatis.type.Alias;
 @Alias(value = "refund_record")
 public class RefundRecord {
     private int id;
-    private String cancelOrderId;
+    private int cancelOrderId;
     private String finish;
 
     public int getId() {
@@ -16,11 +16,11 @@ public class RefundRecord {
         this.id = id;
     }
 
-    public String getCancelOrderId() {
+    public int getCancelOrderId() {
         return cancelOrderId;
     }
 
-    public void setCancelOrderId(String cancelOrderId) {
+    public void setCancelOrderId(int cancelOrderId) {
         this.cancelOrderId = cancelOrderId;
     }
 

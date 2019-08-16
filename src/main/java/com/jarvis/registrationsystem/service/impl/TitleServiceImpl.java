@@ -36,4 +36,9 @@ public class TitleServiceImpl implements TitleService {
     public List<Title> getTitles(){
         return titleDao.getTitles();
     }
+
+    @Override
+    public List<Title> getTitleList(int id,String name){
+        return titleDao.getTitleList(id,name);
+    }
 }

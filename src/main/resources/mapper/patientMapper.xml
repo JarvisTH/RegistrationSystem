@@ -71,4 +71,12 @@
         FROM <include refid="TABLE"/>
     </select>
 
+    <select id="getPatientList" resultType="com.jarvis.registrationsystem.pojo.Patient">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        id=#{id} OR name=#{name} OR sex=#{sex}
+    </select>
+
 </mapper>

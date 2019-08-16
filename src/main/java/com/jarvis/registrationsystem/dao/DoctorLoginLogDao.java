@@ -34,4 +34,12 @@ public interface DoctorLoginLogDao {
      * @return
      */
     List<DoctorLoginLog> getDoctorLoginLogs();
+
+    /**
+     * 根据参数获取列表
+     * @param id
+     * @param doctorId
+     * @return
+     */
+    List<DoctorLoginLog> getDoctorLoginLogList(int id,int doctorId);
 }

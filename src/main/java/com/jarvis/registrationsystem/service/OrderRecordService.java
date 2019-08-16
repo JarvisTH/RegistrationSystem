@@ -13,4 +13,6 @@ public interface OrderRecordService {
     int updateOrderRecord(OrderRecord orderRecord);
 
     List<OrderRecord> getOrderRecords();
+
+    List<OrderRecord> getOrderRecordList(int scheduleId,String keMu,String keShi);
 }

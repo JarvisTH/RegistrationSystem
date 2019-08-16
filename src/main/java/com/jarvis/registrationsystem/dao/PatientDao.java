@@ -34,4 +34,13 @@ public interface PatientDao {
      * @return
      */
     List<Patient> getPatients();
+
+    /**
+     * 根据参数获取列表
+     * @param id
+     * @param name
+     * @param sex
+     * @return
+     */
+    List<Patient> getPatientList(int id,String name,String sex);
 }

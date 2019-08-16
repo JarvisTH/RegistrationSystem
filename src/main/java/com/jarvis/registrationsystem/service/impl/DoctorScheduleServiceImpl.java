@@ -36,4 +36,9 @@ public class DoctorScheduleServiceImpl implements DoctorScheduleService {
         return doctorScheduleDao.getDoctorSchedules();
     }
 
+    @Override
+    public List<DoctorSchedule> getDoctorScheduleList(int id,int doctorId){
+        return doctorScheduleDao.getDoctorScheduleList(id,doctorId);
+    }
+
 }

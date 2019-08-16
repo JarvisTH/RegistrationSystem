@@ -32,7 +32,7 @@ introduction varchar(256) default 'unknown',
 
 create table doctor_schedule(
 id int(6) unsigned auto_increment,
-doctor_id varchar(10) not null,
+doctor_id id int(6) not null,
 building varchar(64) not null,
 floor varchar(8) not null,
 region varchar(8) not null,
@@ -58,9 +58,9 @@ primary key(id)
 create table order_record(
 id int(6) unsigned auto_increment,
 serial_number varchar(8) not null,
-patient_id varchar(10) not null,
-doctor_id varchar(10) not null,
-schedule_id varchar(10) not null,
+patient_id id int(6) not null,
+doctor_id id int(6) not null,
+schedule_id id int(6) not null,
 ke_mu_name varchar(256) not null,
 ke_shi_name varchar(256) not null,
 price varchar(8) not null,
@@ -70,9 +70,9 @@ primary key(id)
 create table cancel_order(
 id int(6) unsigned auto_increment,
 serial_number varchar(8) not null,
-patient_id varchar(10) not null,
-doctor_id varchar(10) not null,
-schedule_id varchar(10) not null,
+patient_id id int(6) not null,
+doctor_id id int(6) not null,
+schedule_id id int(6) not null,
 ke_mu_name varchar(256) not null,
 ke_shi_name varchar(256) not null,
 price varchar(8) not null,
@@ -88,14 +88,14 @@ primary key(id)
 
 create table patient_login_log(
 id int(6) unsigned auto_increment,
-patient_id varchar(10) not null,
+patient_id id int(6) not null,
 login_time varchar(32) not null,
 primary key(id)
 )engine=innodb charset=utf8;
 
 create table doctor_login_log(
 id int(6) unsigned auto_increment,
-dortor_id varchar(10) not null,
+doctor_id id int(6) not null,
 login_time varchar(32) not null,
 primary key(id)
 )engine=innodb charset=utf8;

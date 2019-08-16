@@ -13,4 +13,6 @@ public interface DoctorScheduleService {
     int updateDoctorSchedule(DoctorSchedule doctorSchedule);
 
     List<DoctorSchedule> getDoctorSchedules();
+
+    List<DoctorSchedule> getDoctorScheduleList(int id,int doctorId);
 }
