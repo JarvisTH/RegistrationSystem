@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" lang="en">
+<head>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>添加职称</title>
+</head>
+<body class="bg-dark text-white">
+
+<div th:include="@{/include/admin/adminNavigator}"></div>
+
+<div class="col-md-4 offset-md-4 mt-3">
+    <form class="container">
+        <div class="form-group ">
+            <label for="title">职称:</label>
+            <input type="text" class="form-control" id="title" value="${title.name}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div th:include="@{/include/admin/adminFooter}"></div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" lang="en">
+<head>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>修改医师信息</title>
+</head>
+<body class="bg-dark text-white">
+
+<div th:include="@{/include/admin/adminNavigator}"></div>
+
+<div class="col-md-4 offset-md-4 mt-3">
+    <form class="container">
+        <div class="form-group ">
+            <label for="name">名字:</label>
+            <input type="text" class="form-control" id="name" value="${doctor.name}">
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio">男</label>
+            <label><input type="radio" name="optradio">女</label>
+        </div>
+        <div class="form-group ">
+            <label for="age">年龄:</label>
+            <input type="text" class="form-control" id="age" value="${doctor.age}">
+        </div>
+        <div class="form-group ">
+            <label for="title">职称:</label>
+            <input type="text" class="form-control" id="title" value="${doctor.title}">
+        </div>
+        <div class="form-group ">
+            <label for="keMu">科目:</label>
+            <input type="text" class="form-control" id="keMu" value="${doctor.keMu}">
+        </div>
+        <div class="form-group ">
+            <label for="keShi">科室:</label>
+            <input type="text" class="form-control" id="keShi" value="${doctor.keShi}">
+        </div>
+        <div class="form-group ">
+            <label for="expertise">擅长:</label>
+            <input type="text" class="form-control" id="expertise" value="${doctor.expertise}">
+        </div>
+        <div class="form-group ">
+            <label for="introduction">简介:</label>
+            <input type="text" class="form-control" id="introduction" value="${doctor.introduction}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div th:include="@{/include/admin/adminFooter}"></div>
+
+</body>
+</html>

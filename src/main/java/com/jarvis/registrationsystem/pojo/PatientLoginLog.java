@@ -16,11 +16,11 @@ public class PatientLoginLog {
         this.id = id;
     }
 
-    public String getPatientId() {
+    public int getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(String patientId) {
+    public void setPatientId(int patientId) {
         this.patientId = patientId;
     }
 

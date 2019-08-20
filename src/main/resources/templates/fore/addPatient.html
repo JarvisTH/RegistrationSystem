@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" lang="en">
+<head>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>新用户注册</title>
+</head>
+<body class="bg-dark text-white">
+
+<div th:include="@{/include/admin/adminNavigator}"></div>
+
+<div class="col-md-4 offset-md-4 mt-3">
+    <form class="container">
+        <div class="form-group ">
+            <label for="name">姓名:</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio">男</label>
+            <label><input type="radio" name="optradio">女</label>
+        </div>
+        <div class="form-group ">
+            <label for="age">年龄:</label>
+            <input type="text" class="form-control" id="age">
+        </div>
+        <div class="form-group ">
+            <label for="idCard">身份证号码:</label>
+            <input type="text" class="form-control" id="idCard">
+        </div>
+        <div class="form-group ">
+            <label for="address">地址:</label>
+            <input type="text" class="form-control" id="address">
+        </div>
+        <div class="form-group ">
+            <label for="phone">电话号码:</label>
+            <input type="text" class="form-control" id="phone">
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+</div>
+
+
+<div th:include="@{/include/admin/adminFooter}"></div>
+
+</body>
+</html>

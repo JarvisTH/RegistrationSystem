@@ -1,6 +1,6 @@
 package com.jarvis.registrationsystem.service.impl;
 
-import com.jarvis.registrationsystem.dao.KeMuDao;
+import com.jarvis.registrationsystem.dao.KeMuMapper;
 import com.jarvis.registrationsystem.pojo.KeMu;
 import com.jarvis.registrationsystem.service.KeMuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,35 +15,35 @@ import java.util.List;
 public class KeMuServiceImpl implements KeMuService {
 
     @Autowired
-    private KeMuDao keMuDao=null;
+    private KeMuMapper keMuMapper=null;
 
     @Override
     public int addKeMu(String keMu){
-        return keMuDao.addKeMu(keMu);
+        return keMuMapper.addKeMu(keMu);
     }
 
     @Override
     public int deleteKeMu(int id){
-        return keMuDao.deleteKeMu(id);
+        return keMuMapper.deleteKeMu(id);
     }
 
     @Override
     public int updateKeMu(KeMu keMu){
-        return keMuDao.updateKeMu(keMu);
+        return keMuMapper.updateKeMu(keMu);
     }
 
     @Override
     public List<KeMu> getKeMus(){
-        return keMuDao.getKeMus();
+        return keMuMapper.getKeMus();
     }
 
     @Override
     public KeMu getKeMu(int id){
-        return keMuDao.getKeMu(id);
+        return keMuMapper.getKeMu(id);
     }
 
     @Override
     public List<KeMu> getKeMuList(int id,String name){
-        return keMuDao.getKeMuList(id,name);
+        return keMuMapper.getKeMuList(id,name);
     }
 }

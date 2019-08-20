@@ -19,37 +19,38 @@ public class DoctorLoginLogController {
     public String listDoctorLoginLog(Model model ){
         List<DoctorLoginLog> doctorLoginLogs=doctorLoginLogService.getDoctorLoginLogs();
         model.addAttribute("doctorLoginLogs",doctorLoginLogs);
-        return "admin/listDoctorLoginLog";
+        return "admin/list/listDoctorLoginLog";
     }
 
     @RequestMapping("updateDoctorLoginLog")
-    public String updateDoctorLoginLog(Model model){
-        //传来参数或者实例
+    public String updateDoctorLoginLog( int id,int doctorId,String loginTime){
         DoctorLoginLog doctorLoginLog=new DoctorLoginLog();
+        doctorLoginLog.setId(id);
+        doctorLoginLog.setDoctorId(doctorId);
+        doctorLoginLog.setLoginTime(loginTime);
         doctorLoginLogService.updateDoctorLoginLog(doctorLoginLog);
-        return "admin/listDoctorLoginLog";
+        return "redirect:admin/list/listDoctorLoginLog";
     }
 
     @RequestMapping("deleteDoctorLoginLog")
-    public String deleteDoctorLoginLog(Model model){
-        //传来id
+    public String deleteDoctorLoginLog(int id){
         doctorLoginLogService.deleteDoctorLoginLog(id);
-        return "admin/listDoctorLoginLog";
+        return "redirect:admin/list/listDoctorLoginLog";
     }
 
     @RequestMapping("addDoctorLoginLog")
-    public String addDoctorLoginLog(Model model){
-        //传来参数或者实例
+    public String addDoctorLoginLog(int doctorId,String loginTime){
         DoctorLoginLog doctorLoginLog=new DoctorLoginLog();
+        doctorLoginLog.setDoctorId(doctorId);
+        doctorLoginLog.setLoginTime(loginTime);
         doctorLoginLogService.addDoctorLoginLog(doctorLoginLog);
-        return "admin/listDoctorLoginLog";
+        return "redirect:admin/list/listDoctorLoginLog";
     }
 
     @RequestMapping("getDoctorLoginLogListByPara")
-    public String getDoctorLoginLogListByPara(Model model){
-        //传来参数
+    public String getDoctorLoginLogListByPara(int id, int doctorId, Model model){
         List<DoctorLoginLog> doctorLoginLogs=doctorLoginLogService.getDoctorLoginLogList(id,doctorId);
         model.addAttribute("doctorLoginLogs",doctorLoginLogs);
-        return "admin/listDoctorLoginLog";
+        return "admin/list/listDoctorLoginLog";
     }
 }

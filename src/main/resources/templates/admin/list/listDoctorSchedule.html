@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" lang="en">
+<head>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>医师管理</title>
+</head>
+<body class="bg-dark text-white">
+
+<div th:include="@{/include/admin/adminNavigator}"></div>
+
+<!-- 搜索 -->
+<div class="container mt-3">
+    <form>
+        <label>搜索栏：</label>
+        <div class="custom-control custom-input custom-control-inline input-group-sm">
+            <input type="text" class="form-control" placeholder="请输入ID" id="usr" name="username">
+        </div>
+        <div class="custom-control custom-input custom-control-inline input-group-sm">
+            <input type="text" class="form-control" placeholder="请输入医师ID" id="usr" name="username">
+        </div>
+        <input type="submit" class="btn btn-info " value="Search">
+    </form>
+</div>
+
+<!-- 添加 -->
+<div class="container mt-3">
+    <label>功能栏：</label>
+    <a href="" class="btn bg-primary text-white">添加</a>
+</div>
+
+<!-- 内容 -->
+<div class="container mt-3">
+    <table class="table table-bordered table-hover table-dark table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>楼栋</th>
+            <th>区域</th>
+            <th>房间</th>
+            <th>日期</th>
+            <th>上/下午</th>
+            <th>总量</th>
+            <th>剩余量</th>
+            <th>医师ID</th>
+            <th>修改</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="doctorSchedule:${doctorSchedules}">
+                <th th:text="${doctorSchedule.id}"></th>
+                <td th:text="${doctorSchedule.building}"></td>
+                <td th:text="${doctorSchedule.region}"></td>
+                <td th:text="${doctorSchedule.room}"></td>
+                <td th:text="${doctorSchedule.scheduleDate}"></td>
+                <td th:text="${doctorSchedule.detailTime}"></td>
+                <td th:text="${doctorSchedule.totalAmount}"></td>
+                <td th:text="${doctorSchedule.remainAmount}"></td>
+                <td><a href="" th:text="${doctorSchedule.doctorId}"></a></td>
+                <td><a href="">modify</a></td>
+                <td><a href="">delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- 分页 -->
+<div style="margin-left: 44%;  margin-top: 2rem;">
+    <ul class="pagination pagination-sm">
+        <li class="page-item"><a class="page-link bg-dark text-white" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link bg-dark text-white" href="#">1</a></li>
+        <li class="page-item active"><a class="page-link bg-dark text-white" href="#">2</a></li>
+        <li class="page-item"><a class="page-link bg-dark text-white" href="#">3</a></li>
+        <li class="page-item"><a class="page-link bg-dark text-white" href="#">Next</a></li>
+    </ul>
+</div>
+<div th:include="@{/include/admin/adminFooter}"></div>
+
+</body>
+</html>

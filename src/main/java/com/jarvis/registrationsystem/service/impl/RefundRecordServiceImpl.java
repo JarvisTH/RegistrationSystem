@@ -1,6 +1,6 @@
 package com.jarvis.registrationsystem.service.impl;
 
-import com.jarvis.registrationsystem.dao.RefundRecordDao;
+import com.jarvis.registrationsystem.dao.RefundRecordMapper;
 import com.jarvis.registrationsystem.pojo.RefundRecord;
 import com.jarvis.registrationsystem.service.RefundRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,30 +15,30 @@ import java.util.List;
 public class RefundRecordServiceImpl implements RefundRecordService {
 
     @Autowired
-    private RefundRecordDao refundRecordDao=null;
+    private RefundRecordMapper refundRecordMapper=null;
 
     @Override
     public int addRefundRecord(RefundRecord refundRecord){
-        return refundRecordDao.addRefundRecord(refundRecord);
+        return refundRecordMapper.addRefundRecord(refundRecord);
     }
 
     @Override
     public int deleteRefundRecord(int id){
-        return refundRecordDao.deleteRefundRecord(id);
+        return refundRecordMapper.deleteRefundRecord(id);
     }
 
     @Override
     public int updateRefundRecord(RefundRecord refundRecord){
-        return refundRecordDao.updateRefundRecord(refundRecord);
+        return refundRecordMapper.updateRefundRecord(refundRecord);
     }
 
     @Override
     public List<RefundRecord> getRefundRecords(){
-        return refundRecordDao.getRefundRecords();
+        return refundRecordMapper.getRefundRecords();
     }
 
     @Override
     public List<RefundRecord> getRefundRecordList(int cancelOrderId){
-        return refundRecordDao.getRefundRecordList(cancelOrderId);
+        return refundRecordMapper.getRefundRecordList(cancelOrderId);
     }
 }

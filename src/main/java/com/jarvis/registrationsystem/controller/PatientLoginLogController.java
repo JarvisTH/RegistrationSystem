@@ -20,38 +20,39 @@ public class PatientLoginLogController {
     public String listPatientLoginLog(Model model){
         List<PatientLoginLog> patientLoginLogs=patientLoginLogService.getPatientLoginLogs();
         model.addAttribute("patientLoginLogs",patientLoginLogs);
-        return "admin/listPatientLoginLog";
+        return "admin/list/listPatientLoginLog";
     }
 
 
     @RequestMapping("updatePatientLoginLog")
-    public String updatePatientLoginLog(Model model){
-        //传来参数或者实例
-        PatientLoginLog patientLoginLog=new PatientLoginLog();
+    public String updatePatientLoginLog(int id,int patientId,String loginTime){
+         PatientLoginLog patientLoginLog=new PatientLoginLog();
+         patientLoginLog.setId(id);
+         patientLoginLog.setPatientId(patientId);
+         patientLoginLog.setLoginTime(loginTime);
         patientLoginLogService.updatePatientLoginLog(patientLoginLog);
-        return "admin/listPatientLoginLog";
+        return "redirect:admin/list/listPatientLoginLog";
     }
 
     @RequestMapping("deletePatientLoginLog")
-    public String deletePatientLoginLog(Model model){
-        //传来id
+    public String deletePatientLoginLog(int id){
         patientLoginLogService.deletePatientLoginLog(id);
-        return "admin/listPatientLoginLog";
+        return "redirect:admin/list/listPatientLoginLog";
     }
 
     @RequestMapping("addPatientLoginLog")
-    public String addPatientLoginLog(Model model){
-        //传来参数或者实例
+    public String addPatientLoginLog(int patientId,String loginTime){
         PatientLoginLog patientLoginLog=new PatientLoginLog();
+        patientLoginLog.setPatientId(patientId);
+        patientLoginLog.setLoginTime(loginTime);
         patientLoginLogService.addPatientLoginLog(patientLoginLog);
-        return "admin/listPatientLoginLog";
+        return "redirect:admin/list/listPatientLoginLog";
     }
 
     @RequestMapping("getPatientLoginLogListByPara")
-    public String getPatientLoginLogListByPara(Model model){
-        //传来参数
+    public String getPatientLoginLogListByPara(int id, int patientId, Model model){
         List<PatientLoginLog> patientLoginLogs=patientLoginLogService.getPatientLoginLogList(id,patientId);
         model.addAttribute("patientLoginLogs",patientLoginLogs);
-        return "admin/listPatientLoginLog";
+        return "admin/list/listPatientLoginLog";
     }
 }

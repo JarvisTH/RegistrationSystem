@@ -1,6 +1,6 @@
 package com.jarvis.registrationsystem.service.impl;
 
-import com.jarvis.registrationsystem.dao.KeShiDao;
+import com.jarvis.registrationsystem.dao.KeShiMapper;
 import com.jarvis.registrationsystem.pojo.KeShi;
 import com.jarvis.registrationsystem.service.KeShiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,30 +14,30 @@ import java.util.List;
 @Transactional(isolation = Isolation.READ_COMMITTED,timeout = 1)
 public class KeShiServiceImpl implements KeShiService {
     @Autowired
-    private KeShiDao keShiDao=null;
+    private KeShiMapper keShiMapper=null;
 
     @Override
     public int addKeShi(String name){
-        return keShiDao.addKeShi(name);
+        return keShiMapper.addKeShi(name);
     }
 
     @Override
     public int deleteKeShi(int id){
-        return keShiDao.deleteKeShi(id);
+        return keShiMapper.deleteKeShi(id);
     }
 
     @Override
     public int updateKeShi(KeShi keShi){
-        return keShiDao.updateKeShi(keShi);
+        return keShiMapper.updateKeShi(keShi);
     }
 
     @Override
     public List<KeShi> getKeShis(){
-        return keShiDao.getKeShis();
+        return keShiMapper.getKeShis();
     }
 
     @Override
     public List<KeShi> getKeShiList(int id,String name){
-        return keShiDao.getKeShiList(id,name);
+        return keShiMapper.getKeShiList(id,name);
     }
 }

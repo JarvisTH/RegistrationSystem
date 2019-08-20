@@ -1,6 +1,6 @@
 package com.jarvis.registrationsystem.service.impl;
 
-import com.jarvis.registrationsystem.dao.PatientLoginLogDao;
+import com.jarvis.registrationsystem.dao.PatientLoginLogMapper;
 import com.jarvis.registrationsystem.pojo.PatientLoginLog;
 import com.jarvis.registrationsystem.service.PatientLoginLogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,30 +14,30 @@ import java.util.List;
 @Transactional(isolation = Isolation.READ_COMMITTED,timeout = 1)
 public class PatientLoginLogServiceImpl implements PatientLoginLogService {
     @Autowired
-    private PatientLoginLogDao patientLoginLogDao=null;
+    private PatientLoginLogMapper patientLoginLogMapper=null;
 
     @Override
     public int addPatientLoginLog(PatientLoginLog patientLoginLog){
-        return patientLoginLogDao.addPatientLoginLog(patientLoginLog);
+        return patientLoginLogMapper.addPatientLoginLog(patientLoginLog);
     }
 
     @Override
     public int deletePatientLoginLog(int id){
-        return patientLoginLogDao.deletePatientLoginLog(id);
+        return patientLoginLogMapper.deletePatientLoginLog(id);
     }
 
     @Override
     public int updatePatientLoginLog(PatientLoginLog patientLoginLog){
-        return patientLoginLogDao.updatePatientLoginLog(patientLoginLog);
+        return patientLoginLogMapper.updatePatientLoginLog(patientLoginLog);
     }
 
     @Override
     public List<PatientLoginLog> getPatientLoginLogs(){
-        return patientLoginLogDao.getPatientLoginLogs();
+        return patientLoginLogMapper.getPatientLoginLogs();
     }
 
     @Override
     public List<PatientLoginLog> getPatientLoginLogList(int id,int patientId){
-        return patientLoginLogDao.getPatientLoginLogList(id,patientId);
+        return patientLoginLogMapper.getPatientLoginLogList(id,patientId);
     }
 }

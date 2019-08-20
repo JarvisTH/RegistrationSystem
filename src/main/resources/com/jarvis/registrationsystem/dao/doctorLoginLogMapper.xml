@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jarvis.registrationsystem.dao.DoctorLoginLogMapper">
+
+    <!--基本表-->
+    <sql id="TABLE">
+        doctor_login_log
+    </sql>
+
+    <sql id="FIELDS">
+        dortor_id,login_time
+    </sql>
+
+    <sql id="ALL_FIELDS">
+        id,dortor_id as dortorId,login_time as loginTime
+    </sql>
+
+    <!--添加-->
+    <insert id="addDoctorLoginLog" parameterType="com.jarvis.registrationsystem.pojo.DoctorLoginLog">
+        INSERT INTO
+        <include refid="TABLE"/>
+        <trim prefix="(" suffix=")">
+            <include refid="FIELDS"/>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")">
+            #{dortorId},#{loginTime}
+        </trim>
+    </insert>
+
+    <!--删除-->
+    <delete id="deleteDoctorLoginLog" parameterType="INTEGER">
+        DELETE FROM
+        <include refid="TABLE"/>
+        WHERE
+        id=#{id}
+    </delete>
+
+    <!--更新-->
+    <update id="updateDoctorLoginLog" parameterType="com.jarvis.registrationsystem.pojo.DoctorLoginLog">
+        UPDATE
+        <include refid="TABLE"/>
+        <set>
+            <if test="dortorId!=null">
+                dortor_id=#{dortorId,jdbcType=INTEGER}
+            </if>
+            <if test="loginTime!=null">
+                login_time=#{loginTime,jdbcType=VARCHAR}
+            </if>
+        </set>
+    </update>
+
+    <!--查询列表-->
+    <select id="getDoctorLoginLogs" resultType="com.jarvis.registrationsystem.pojo.DoctorLoginLog">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+    </select>
+
+    <select id="getDoctorLoginLogList" resultType="com.jarvis.registrationsystem.pojo.DoctorLoginLog">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        id=#{id} OR doctor_id=#{doctorId}
+    </select>
+
+</mapper>

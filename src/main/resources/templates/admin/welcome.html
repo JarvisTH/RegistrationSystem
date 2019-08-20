@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" lang="en">
+<head>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>welcome</title>
+
+</head>
+<body class="bg-dark text-white">
+
+<div th:include="@{/include/admin/adminNavigator}"></div>
+
+
+<div class="container" style="text-align: center; margin-top: 20%">
+    <h1 class="text-primary" style="align-content: center">欢迎进入医院挂号预约系统后台</h1>
+</div>
+
+<div th:include="@{/include/admin/adminFooter}"></div>
+
+</body>
+</html>

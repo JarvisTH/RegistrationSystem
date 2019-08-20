@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org" lang="en">
+<head>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>添加科室</title>
+</head>
+<body class="bg-dark text-white">
+
+<div th:include="@{/include/admin/adminNavigator}"></div>
+
+
+<div class="col-md-4 offset-md-4 mt-3">
+    <form class="container">
+        <div class="form-group ">
+            <label for="doctorId">医师Id:</label>
+            <input type="text" class="form-control" id="doctorId" value="${doctorScheduele.doctorId}">
+        </div>
+        <div class="form-group ">
+            <label for="building">楼栋:</label>
+            <input type="text" class="form-control" id="building" value="${doctorScheduele.building}">
+        </div>
+        <div class="form-group ">
+            <label for="floor">楼层:</label>
+            <input type="text" class="form-control" id="floor" value="${doctorScheduele.floor}">
+        </div>
+        <div class="form-group ">
+            <label for="region">区域:</label>
+            <input type="text" class="form-control" id="region" value="${doctorScheduele.region}">
+        </div>
+        <div class="form-group ">
+            <label for="room">房间:</label>
+            <input type="text" class="form-control" id="room" value="${doctorScheduele.room}">
+        </div>
+        <div class="form-group ">
+            <label for="scheduleDate">日期:</label>
+            <input type="text" class="form-control" id="scheduleDate" value="${doctorScheduele.scheduleDate}">
+        </div>
+        <div class="form-group ">
+            <label for="detailTime">具体时间段:</label>
+            <input type="text" class="form-control" id="detailTime" value="${doctorScheduele.detailTime}">
+        </div>
+        <div class="form-group ">
+            <label for="totalAmount">总数:</label>
+            <input type="text" class="form-control" id="totalAmount" value="${doctorScheduele.totalAmount}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<div th:include="@{/include/admin/adminFooter}"></div>
+
+</body>
+</html>

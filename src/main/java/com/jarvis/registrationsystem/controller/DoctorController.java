@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -17,12 +16,10 @@ public class DoctorController {
     private DoctorService doctorService;
 
     @RequestMapping("listDoctor")
-    public String listDoctor(List<Doctor> doctors,Model model){
-        if(doctors==null){
-            doctors=doctorService.getDoctors();
-        }
+    public String listDoctor(Model model){
+        List<Doctor> doctors=doctorService.getDoctors();
         model.addAttribute("doctors",doctors);
-        return "admin/listDoctor";
+        return "admin/list/listDoctor";
     }
 
     @RequestMapping("updateDoctor")
@@ -39,13 +36,13 @@ public class DoctorController {
         doctor.setExpertise(expertise);
         doctor.setIntroduction(introduction);
         doctorService.updateDoctor(doctor);
-        return "redirect:admin/listDoctor";
+        return "redirect:admin/list/listDoctor";
     }
 
     @RequestMapping("deleteDoctor")
     public String deleteDoctor(int id){
         doctorService.deleteDoctor(id);
-        return "redirect:admin/listDoctor";
+        return "redirect:admin/list/listDoctor";
     }
 
     @RequestMapping("addDoctor")
@@ -62,13 +59,13 @@ public class DoctorController {
         doctor.setExpertise(expertise);
         doctor.setIntroduction(introduction);
         doctorService.addDoctor(doctor);
-        return "redirect:admin/listDoctor";
+        return "redirect:admin/list/listDoctor";
     }
 
     @RequestMapping("getDoctorListByPara")
-    public String getDoctorListByPara(int id, String name, String sex, RedirectAttributes ra){
+    public String getDoctorListByPara(int id, String name, String sex, Model model){
         List<Doctor> doctors=doctorService.getDoctorList(id,name,sex);
-        ra.addAttribute("doctors",doctors);
-        return "redirect:admin/listDoctor";
+        model.addAttribute("doctors",doctors);
+        return "admin/list/listDoctor";
     }
 }

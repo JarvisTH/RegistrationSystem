@@ -1,6 +1,6 @@
 package com.jarvis.registrationsystem.service.impl;
 
-import com.jarvis.registrationsystem.dao.CancelOrderDao;
+import com.jarvis.registrationsystem.dao.CancelOrderMapper;
 import com.jarvis.registrationsystem.pojo.CancelOrder;
 import com.jarvis.registrationsystem.service.CancelOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,30 +14,30 @@ import java.util.List;
 @Transactional(isolation = Isolation.READ_COMMITTED,timeout = 1)
 public class CancelOrderServiceImpl implements CancelOrderService {
     @Autowired
-    private CancelOrderDao cancelOrderDao=null;
+    private CancelOrderMapper cancelOrderMapper=null;
 
    @Override
     public int addCancelOrder(CancelOrder cancelOrder){
-        return cancelOrderDao.addCancelOrder(cancelOrder);
+        return cancelOrderMapper.addCancelOrder(cancelOrder);
     }
 
     @Override
     public int deleteCancelOrder(int id){
-        return cancelOrderDao.deleteCancelOrder(id);
+        return cancelOrderMapper.deleteCancelOrder(id);
     }
 
     @Override
     public int updateCancelOrder(CancelOrder cancelOrder){
-        return cancelOrderDao.updateCancelOrder(cancelOrder);
+        return cancelOrderMapper.updateCancelOrder(cancelOrder);
     }
 
     @Override
     public List<CancelOrder> getCancelOrders(){
-        return cancelOrderDao.getCancelOrders();
+        return cancelOrderMapper.getCancelOrders();
     }
 
     @Override
     public List<CancelOrder> getCancelOrderList(int scheduleId,String keMu,String keShi){
-       return cancelOrderDao.getCancelOrderList(scheduleId,keMu,keShi);
+       return cancelOrderMapper.getCancelOrderList(scheduleId,keMu,keShi);
     }
 }

@@ -1,6 +1,6 @@
 package com.jarvis.registrationsystem.service.impl;
 
-import com.jarvis.registrationsystem.dao.DoctorScheduleDao;
+import com.jarvis.registrationsystem.dao.DoctorScheduleMapper;
 import com.jarvis.registrationsystem.pojo.DoctorSchedule;
 import com.jarvis.registrationsystem.service.DoctorScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,31 +14,31 @@ import java.util.List;
 @Transactional(isolation = Isolation.READ_COMMITTED,timeout = 1)
 public class DoctorScheduleServiceImpl implements DoctorScheduleService {
     @Autowired
-    private DoctorScheduleDao doctorScheduleDao=null;
+    private DoctorScheduleMapper doctorScheduleMapper=null;
 
     @Override
     public int addDoctorSchedule(DoctorSchedule doctorSchedule){
-        return doctorScheduleDao.addDoctorSchedule(doctorSchedule);
+        return doctorScheduleMapper.addDoctorSchedule(doctorSchedule);
     }
 
     @Override
     public int deleteDoctorSchedule(int id){
-        return doctorScheduleDao.deleteDoctorSchedule(id);
+        return doctorScheduleMapper.deleteDoctorSchedule(id);
     }
 
     @Override
     public int updateDoctorSchedule(DoctorSchedule doctorSchedule){
-        return doctorScheduleDao.updateDoctorSchedule(doctorSchedule);
+        return doctorScheduleMapper.updateDoctorSchedule(doctorSchedule);
     }
 
     @Override
     public List<DoctorSchedule> getDoctorSchedules(){
-        return doctorScheduleDao.getDoctorSchedules();
+        return doctorScheduleMapper.getDoctorSchedules();
     }
 
     @Override
     public List<DoctorSchedule> getDoctorScheduleList(int id,int doctorId){
-        return doctorScheduleDao.getDoctorScheduleList(id,doctorId);
+        return doctorScheduleMapper.getDoctorScheduleList(id,doctorId);
     }
 
 }

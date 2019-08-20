@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jarvis.registrationsystem.dao.KeMuMapper">
+
+    <!--基本表-->
+    <sql id="TABLE">
+        ke_mu
+    </sql>
+
+    <sql id="FIELDS">
+        id,name
+    </sql>
+
+    <sql id="NAME">
+        name
+    </sql>
+
+    <!--添加-->
+    <insert id="addKeMu" parameterType="INTEGER">
+        INSERT INTO
+        <include refid="TABLE"/>
+        <trim prefix="(" suffix=")">
+            <include refid="NAME"/>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")">
+            #{name}
+        </trim>
+    </insert>
+
+    <!--删除-->
+    <delete id="deleteKeMu" parameterType="INTEGER">
+        DELETE FROM
+        <include refid="TABLE"/>
+        WHERE
+        id=#{id}
+        )
+    </delete>
+
+    <!--更新-->
+    <update id="updateKeMu" parameterType="ke_mu">
+        UPDATE
+        <include refid="TABLE"/>
+        <set>
+            <if test="name!=null">
+                name=#{name,jdbcType=VARCHAR}
+            </if>
+        </set>
+    </update>
+
+    <!--查询列表-->
+    <select id="getKeMus" resultType="ke_mu">
+        SELECT
+        <include refid="FIELDS"/>
+        FROM <include refid="TABLE"/>
+    </select>
+
+    <select id="getKeMu" parameterType="INTEGER" resultType="ke_mu">
+        SELECT
+        <include refid="FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        id=#{id}
+    </select>
+
+    <select id="getKeMuList" resultType="ke_mu">
+        SELECT
+        <include refid="FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        id=#{id} OR name=#{name}
+    </select>
+
+</mapper>

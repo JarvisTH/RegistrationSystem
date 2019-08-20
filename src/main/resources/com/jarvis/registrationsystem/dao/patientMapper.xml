@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jarvis.registrationsystem.dao.PatientMapper">
+
+    <!--基本表-->
+    <sql id="TABLE">
+        patient
+    </sql>
+
+    <sql id="FIELDS">
+        name,sex,age,id_card,address,phone
+    </sql>
+
+    <sql id="ALL_FIELDS">
+        id,name,sex,age,id_card as idCard,address,phone
+    </sql>
+
+    <!--添加-->
+    <insert id="addPatient" parameterType="com.jarvis.registrationsystem.pojo.Patient">
+        INSERT INTO
+        <include refid="TABLE"/>
+        <trim prefix="(" suffix=")">
+            <include refid="FIELDS"/>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")">
+            #{name},#{sex},#{age},#{idCard},#{address},#{phone}
+        </trim>
+    </insert>
+
+    <!--删除-->
+    <delete id="deletePatient" parameterType="INTEGER">
+        DELETE FROM
+        <include refid="TABLE"/>
+        WHERE
+        id=#{id}
+    </delete>
+
+    <!--更新-->
+    <update id="updatePatient" parameterType="com.jarvis.registrationsystem.pojo.Patient">
+        UPDATE
+        <include refid="TABLE"/>
+        <set>
+            <if test="name!=null">
+                name=#{name,jdbcType=VARCHAR}
+            </if>
+            <if test="sex!=null">
+                sex=#{sex,jdbcType=VARCHAR}
+            </if>
+            <if test="age!=null">
+                age=#{age,jdbcType=VARCHAR}
+            </if>
+            <if test="idCard!=null">
+                id_card=#{idCard,jdbcType=VARCHAR}
+            </if>
+            <if test="address!=null">
+                address=#{address,jdbcType=VARCHAR}
+            </if>
+            <if test="phone!=null">
+                phone=#{phone,jdbcType=VARCHAR}
+            </if>
+
+        </set>
+    </update>
+
+    <!--查询列表-->
+    <select id="getPatients" resultType="com.jarvis.registrationsystem.pojo.Patient">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+    </select>
+
+    <select id="getPatientList" resultType="com.jarvis.registrationsystem.pojo.Patient">
+        SELECT
+        <include refid="ALL_FIELDS"/>
+        FROM <include refid="TABLE"/>
+        WHERE
+        id=#{id} OR name=#{name} OR sex=#{sex}
+    </select>
+
+</mapper>

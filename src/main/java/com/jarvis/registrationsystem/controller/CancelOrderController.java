@@ -5,33 +5,34 @@ import com.jarvis.registrationsystem.service.CancelOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 //定义控制器
 @Controller
 //定义类请求路径
-@RequestMapping("")
+@RequestMapping()
 public class CancelOrderController {
 
     @Autowired
     private CancelOrderService cancelOrderService=null;
 
+    @RequestMapping("welcome")
+    public String welcome(){
+        return "welcome";
+    }
+
     @RequestMapping("listCancelOrder")
-    public String listCancelOrder(List<CancelOrder> cancelOrders,Model model){
-        if(cancelOrders==null){
-            cancelOrders=cancelOrderService.getCancelOrders();
-        }
+    public String listCancelOrder(Model model){
+        List<CancelOrder> cancelOrders=cancelOrderService.getCancelOrders();
         model.addAttribute("cancelOrders",cancelOrders);
-        return "admin/listCancelOrder";
+        return "admin/list/listCancelOrder";
     }
 
     @RequestMapping("deleteCancelOrder")
     public String deleteCancelOrder(int id){
         cancelOrderService.deleteCancelOrder(id);
-        return "redirect:admin/listCancelOrder";
+        return "redirect:admin/list/listCancelOrder";
     }
 
     @RequestMapping("updateCancelOrder")
@@ -46,7 +47,7 @@ public class CancelOrderController {
         cancelOrder.setKeShi(keShi);
         cancelOrder.setPrice(price);
         cancelOrderService.updateCancelOrder(cancelOrder);
-        return "redirect:admin/listCancelOrder";
+        return "redirect:admin/list/listCancelOrder";
     }
 
     @RequestMapping("addCancelOrder")
@@ -60,14 +61,14 @@ public class CancelOrderController {
         cancelOrder.setKeShi(keShi);
         //根据doctorId查职称，然后查到价格
         cancelOrderService.addCancelOrder(cancelOrder);
-        return "redirect:admin/listCancelOrder";
+        return "redirect:admin/list/listCancelOrder";
     }
 
     @RequestMapping("getCancelOrderListByPara")
-    public String getCancelOrderListByPara(int scheduleId, String keMu, String keShi, RedirectAttributes ra){
+    public String getCancelOrderListByPara(int scheduleId, String keMu, String keShi, Model model){
         List<CancelOrder> cancelOrders=cancelOrderService.getCancelOrderList(scheduleId,keMu,keShi);
-        ra.addAttribute("cancelOrders",cancelOrders);
-        return "redirect:admin/listCancelOrder";
+        model.addAttribute("cancelOrders",cancelOrders);
+        return "admin/list/listCancelOrder";
     }
 
 }

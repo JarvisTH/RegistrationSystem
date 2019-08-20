@@ -1,6 +1,6 @@
 package com.jarvis.registrationsystem.service.impl;
 
-import com.jarvis.registrationsystem.dao.PatientDao;
+import com.jarvis.registrationsystem.dao.PatientMapper;
 import com.jarvis.registrationsystem.pojo.Patient;
 import com.jarvis.registrationsystem.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,30 +15,30 @@ import java.util.List;
 public class PatientServiceImpl implements PatientService {
 
     @Autowired
-    private PatientDao patientDao=null;
+    private PatientMapper patientMapper=null;
 
     @Override
     public int addPatient(Patient patient){
-        return patientDao.addPatient(patient);
+        return patientMapper.addPatient(patient);
     }
 
     @Override
     public int deletePatient(int id){
-        return patientDao.deletePatient(id);
+        return patientMapper.deletePatient(id);
     }
 
     @Override
     public int updatePatient(Patient patient){
-        return patientDao.updatePatient(patient);
+        return patientMapper.updatePatient(patient);
     }
 
     @Override
     public List<Patient> getPatients(){
-        return patientDao.getPatients();
+        return patientMapper.getPatients();
     }
 
     @Override
     public List<Patient> getPatientList(int id,String name,String sex){
-        return patientDao.getPatientList(id,name,sex);
+        return patientMapper.getPatientList(id,name,sex);
     }
 }

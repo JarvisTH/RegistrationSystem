@@ -18,24 +18,25 @@ public class RefundRecordController {
 
     @RequestMapping("listRefundRecord")
     public String listRefundRecord(Model model){
-        List<RefundRecord>  refundRecords=refundRecordService.getRefundRecords();
+        List<RefundRecord> refundRecords=refundRecordService.getRefundRecords();
         model.addAttribute("refundRecords",refundRecords);
-        return "admin/listRefundRecord";
+        return "admin/list/listRefundRecord";
     }
 
     @RequestMapping("updateRefundRecord")
-    public String updateRefundRecord(Model model){
-        //传来参数或者实例
+    public String updateRefundRecord(int id,int cancelOrderId,String finish){
         RefundRecord refundRecord=new RefundRecord();
+        refundRecord.setId(id);
+        refundRecord.setCancelOrderId(cancelOrderId);
+        refundRecord.setFinish(finish);
         refundRecordService.updateRefundRecord(refundRecord);
-        return "admin/listRefundRecord";
+        return "redirect:admin/list/listRefundRecord";
     }
 
     @RequestMapping("deleteRefundRecord")
-    public String deleteRefundRecord(Model model){
-        //传来id
+    public String deleteRefundRecord(int id){
         refundRecordService.deleteRefundRecord(id);
-        return "admin/listRefundRecord";
+        return "redirect:admin/list/listRefundRecord";
     }
 
     @RequestMapping("addRefundRecord")
@@ -43,14 +44,13 @@ public class RefundRecordController {
         //传来参数或者实例
         RefundRecord refundRecord=new RefundRecord();
         refundRecordService.addRefundRecord(refundRecord);
-        return "admin/listRefundRecord";
+        return "redirect:admin/list/listRefundRecord";
     }
 
     @RequestMapping("getRefundRecordListByPara")
-    public String getRefundRecordListByPara(Model model){
-        //传来参数
+    public String getRefundRecordListByPara(int cancelOrderId, Model model){
         List<RefundRecord> refundRecords=refundRecordService.getRefundRecordList(cancelOrderId);
         model.addAttribute("refundRecords",refundRecords);
-        return "admin/listRefundRecord";
+        return "admin/list/listRefundRecord";
     }
 }

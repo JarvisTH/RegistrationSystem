@@ -20,38 +20,51 @@ public class OrderRecordContrller {
     public String listOrderRecord(Model model){
         List<OrderRecord> orderRecords=orderRecordService.getOrderRecords();
         model.addAttribute("orderRecords",orderRecords);
-        return "admin/listOrderRecord";
+        return "admin/list/listOrderRecord";
     }
 
 
     @RequestMapping("updateOrderRecord")
-    public String updateOrderRecord(Model model){
-        //传来参数或者实例
+    public String updateOrderRecord(int id,String serialNumber,int patientId,int doctorId,int scheduleId,
+                                    String keMu,String keShi,String price){
         OrderRecord orderRecord=new OrderRecord();
+        orderRecord.setId(id);
+        orderRecord.setSerialNumber(serialNumber);
+        orderRecord.setPatientId(patientId);
+        orderRecord.setDoctorId(doctorId);
+        orderRecord.setScheduleId(scheduleId);
+        orderRecord.setKeMu(keMu);
+        orderRecord.setKeShi(keShi);
+        orderRecord.setPrice(price);
         orderRecordService.updateOrderRecord(orderRecord);
-        return "admin/listOrderRecord";
+        return "redirect:admin/list/listOrderRecord";
     }
 
     @RequestMapping("deleteOrderRecord")
-    public String deleteOrderRecord(Model model){
-        //传来id
+    public String deleteOrderRecord(int id){
         orderRecordService.deleteOrderRecord(id);
-        return "admin/listOrderRecord";
+        return "redirect:admin/list/listOrderRecord";
     }
 
     @RequestMapping("addOrderRecord")
-    public String addOrderRecord(Model model){
-        //传来参数或者实例
+    public String addOrderRecord(String serialNumber,int patientId,int doctorId,int scheduleId,
+                                 String keMu,String keShi,String price){
         OrderRecord orderRecord=new OrderRecord();
+        orderRecord.setSerialNumber(serialNumber);
+        orderRecord.setPatientId(patientId);
+        orderRecord.setDoctorId(doctorId);
+        orderRecord.setScheduleId(scheduleId);
+        orderRecord.setKeMu(keMu);
+        orderRecord.setKeShi(keShi);
+        orderRecord.setPrice(price);
         orderRecordService.addOrderRecord(orderRecord);
-        return "admin/listOrderRecord";
+        return "redirect:admin/list/listOrderRecord";
     }
 
     @RequestMapping("getOrderRecordListByPara")
-    public String getOrderRecordListByPara(Model model){
-        //传来参数
-        List<OrderRecord> orderRecords=orderRecordService.getOrderRecordList(id,name,sex);
+    public String getOrderRecordListByPara(int scheduleId, String keMu, String keShi, Model model){
+        List<OrderRecord> orderRecords=orderRecordService.getOrderRecordList(scheduleId,keMu,keShi);
         model.addAttribute("orderRecords",orderRecords);
-        return "admin/listOrderRecord";
+        return "redirect:admin/list/listOrderRecord";
     }
 }
